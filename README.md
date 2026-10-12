@@ -1,2 +1,3 @@
-# macos-platform-probe-20261013
-Minimal, manually dispatched macOS runner availability probe.
+# macOS runner availability probe
+
+Manually dispatched, two-minute platform check. No project source or personal files.

@@ -1,0 +1,8 @@
+name: macOS runner availability
+on: workflow_dispatch
+jobs:
+  system:
+    runs-on: macos-15
+    timeout-minutes: 2
+    steps:
+      - run: uname -a
