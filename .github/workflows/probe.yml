@@ -1,0 +1,23 @@
+name: Horizyn 0.1.35 macOS runtime probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  launch:
+    runs-on: macos-15
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Probe desktop and execute original release
+        run: python3 probe.py
+      - name: Preserve runtime evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: horizyn-0.1.35-runtime
+          path: evidence/
+          retention-days: 1
+          if-no-files-found: warn
